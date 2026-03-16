@@ -29,12 +29,7 @@ Write a solution to report the first name, last name, city, and state of each pe
 
 Return the result table in **any order**.
 
-
-
-### Explanation
-
-There is no address in the address table for the personId = 1 so we return null in their city and state.
-addressId = 1 contains information about the address of personId = 2.
+# 
 
 ## SQL Solution
 
