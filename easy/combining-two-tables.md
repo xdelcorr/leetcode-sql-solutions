@@ -29,32 +29,7 @@ Write a solution to report the first name, last name, city, and state of each pe
 
 Return the result table in **any order**.
 
-The result format is in the following example.
 
-## Example
-
-### Input
-
-`Person`
-
-| personId | lastName | firstName |
-| -------- | -------- | --------- |
-| 1        | Wang     | Allen     |
-| 2        | Alice    | Bob       |
-
-`Address`
-
-| addressId | personId | city          | state      |
-| --------- | -------- | ------------- | ---------- |
-| 1         | 2        | New York City | New York   |
-| 2         | 3        | Leetcode      | California |
-
-### Output
-
-| firstName | lastName | city          | state    |
-| --------- | -------- | ------------- | -------- |
-| Allen     | Wang     | Null          | Null     |
-| Bob       | Alice    | New York City | New York |
 
 ### Explanation
 
@@ -90,5 +65,3 @@ The selected columns match the required output:
 ### Why `LEFT JOIN` is required
 
 An `INNER JOIN` would remove people who do not have an address record. In the example, `personId = 1` would be excluded, which would be incorrect.
-
-# 
