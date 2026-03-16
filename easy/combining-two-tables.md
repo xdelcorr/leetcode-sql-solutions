@@ -1,37 +1,28 @@
 # Combining Two Tables
 
-## Problem
+# Problem
 
-### `Person`
+Retrieve each person's first name and last name from the `Person` table, along with their city and state from the `Address` table. If a person does not have a matching address record, the address fields should appear as `NULL`.
 
-| Column Name | Type    |
-| ----------- | ------- |
-| personId    | int     |
-| lastName    | varchar |
-| firstName   | varchar |
+# Approach
 
-personId is the primary key (column with unique values) for this table.
-This table contains information about the ID of some persons and their first and last names.
+The solution starts with the `Person` table because every person must be included in the final result. It then joins `Address` on `personId` so address details are added when a matching record exists.
 
-### `Address`
+A `LEFT JOIN` is the correct choice because it preserves all rows from `Person`, even when there is no related row in `Address`. This matches the requirement to return every person and show `NULL` for missing address information.
 
-| Column Name | Type    |
-| ----------- | ------- |
-| addressId   | int     |
-| personId    | int     |
-| city        | varchar |
-| state       | varchar |
+# Key Idea
 
-addressId is the primary key (column with unique values) for this table.
-Each row of this table contains information about the city and state of one person with ID = PersonId.
+Use a `LEFT JOIN` from `Person` to `Address` so that all people remain in the result set while address columns are filled only when a matching `personId` exists.
 
-Write a solution to report the first name, last name, city, and state of each person in the `Person` table. If the address of a `personId` is not present in the `Address` table, report `null` instead.
+# Step-by-Step Explanation
 
-Return the result table in **any order**.
+1. Select the required output columns: first name, last name, city, and state.
+2. Use `Person` as the base table to ensure every person is included.
+3. Join `Address` using the shared `personId` column.
+4. Apply a `LEFT JOIN` so unmatched people are still returned.
+5. When no address is found, SQL automatically returns `NULL` for `city` and `state`.
 
-# 
-
-## SQL Solution
+# SQL Query / Code
 
 ```sql
 SELECT
@@ -44,19 +35,7 @@ LEFT JOIN Address AS a
     ON p.personId = a.personId;
 ```
 
-## Analysis
+# Notes
 
-This query starts from the `Person` table because the result must include every person, even when no matching address exists.
-
-The `LEFT JOIN` keeps all rows from `Person` and matches rows from `Address` using `personId`. When no matching address is found, `a.city` and `a.state` return `NULL`, which is exactly what the problem asks for.
-
-The selected columns match the required output:
-
-- `p.firstName`
-- `p.lastName`
-- `a.city`
-- `a.state`
-
-### Why `LEFT JOIN` is required
-
-An `INNER JOIN` would remove people who do not have an address record. In the example, `personId = 1` would be excluded, which would be incorrect.
+- An `INNER JOIN` would exclude people without an address, which would not satisfy the problem requirements.
+- The result can be returned in any order unless additional sorting is explicitly requested.
