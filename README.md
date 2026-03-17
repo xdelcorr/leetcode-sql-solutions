@@ -1,37 +1,33 @@
 # LeetCode SQL Solutions
 
-This repository contains Markdown writeups for LeetCode SQL problems.
+This repository collects LeetCode SQL problem solutions in a simple, reviewable format.
 
-Each solution is organized by difficulty and includes:
+Each problem currently includes:
 
-- A short problem summary
-- The SQL approach used
-- The key idea behind the query
-- A step-by-step explanation
-- The final SQL solution
-- Notes about edge cases or query behavior
+- A `.md` writeup with the problem summary, approach, key idea, explanation, and notes
+- A matching `.sql` file with the final query only
 
 ## Repository Structure
 
 ```text
 .
-├── easy/
-│   ├── 01-article-views.md
-│   ├── biggest-single-number.md
-│   ├── combining-two-tables.md
-│   ├── customers-who-never-order.md
-│   └── duplicate-emails.md
+├── README.md
+└── easy/
+    ├── 1148-01-article-views.md
+    ├── 1148-01-article-views.sql
+    ├── 175-combine-two-tables.md
+    ├── 175-combine-two-tables.sql
+    ├── 182-duplicate-emails.md
+    ├── 182-duplicate-emails.sql
+    ├── 183-customers-who-never-order.md
+    ├── 183-customers-who-never-order.sql
+    ├── 619-biggest-single-number.md
+    └── 619-biggest-single-number.sql
 ```
 
-## Goal
+## Solution Format
 
-The goal of this repo is to keep SQL solutions readable and easy to review, not just to store final queries.
-
-## Format
-
-Each problem solution is stored as a standalone `.md` file inside its difficulty folder.
-
-Example sections used in the writeups:
+The Markdown writeups generally follow this structure:
 
 - `Problem`
 - `Approach`
@@ -40,8 +36,14 @@ Example sections used in the writeups:
 - `SQL Query / Code`
 - `Notes`
 
+The SQL files are kept separate so the final answer can be viewed without the explanation.
+
 ## Current Coverage
 
 - `easy`: 5 problems
 
-More problems and difficulty levels can be added over time as the collection grows.
+Additional problems and difficulty levels can be added as the collection grows.
+
+## Goal
+
+The goal of this repo is to keep SQL answers easy to read, easy to review, and easy to revisit later.
